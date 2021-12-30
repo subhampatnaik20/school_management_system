@@ -688,23 +688,11 @@ UNLOCK TABLES;
 -- Table structure for table `student_management_app_subjects`
 --
 
-DROP TABLE IF EXISTS `student_management_app_subjects`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `student_management_app_subjects` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `subject_name` varchar(255) NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
-  `course_id_id` int(11) NOT NULL,
-  `staff_id_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `student_management_a_course_id_id_342668dd_fk_student_m` (`course_id_id`),
-  KEY `student_management_a_staff_id_id_5f47119a_fk_student_m` (`staff_id_id`),
-  CONSTRAINT `student_management_a_course_id_id_342668dd_fk_student_m` FOREIGN KEY (`course_id_id`) REFERENCES `student_management_app_courses` (`id`),
-  CONSTRAINT `student_management_a_staff_id_id_5f47119a_fk_student_m` FOREIGN KEY (`staff_id_id`) REFERENCES `student_management_app_customuser` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
+
+
 
 --
 -- Dumping data for table `student_management_app_subjects`
