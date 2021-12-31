@@ -1,23 +1,3 @@
--- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
---
--- Host: localhost    Database: student_management_system
--- ------------------------------------------------------
--- Server version	8.0.18
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `auth_group`
---
 
 DROP TABLE IF EXISTS `auth_group`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -688,11 +668,22 @@ UNLOCK TABLES;
 -- Table structure for table `student_management_app_subjects`
 --
 
-
-
-
-
-
+DROP TABLE IF EXISTS `student_management_app_subjects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_management_app_subjects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject_name` varchar(255) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `course_id_id` int(11) NOT NULL,
+  `staff_id_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_management_a_course_id_id_342668dd_fk_student_m` (`course_id_id`),
+  KEY `student_management_a_staff_id_id_5f47119a_fk_student_m` (`staff_id_id`),
+  CONSTRAINT `student_management_a_course_id_id_342668dd_fk_student_m` FOREIGN KEY (`course_id_id`) REFERENCES `student_management_app_courses` (`id`),
+  CONSTRAINT `student_management_a_staff_id_id_5f47119a_fk_student_m` FOREIGN KEY (`staff_id_id`) REFERENCES `student_management_app_customuser` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `student_management_app_subjects`
@@ -703,14 +694,3 @@ LOCK TABLES `student_management_app_subjects` WRITE;
 INSERT INTO `student_management_app_subjects` VALUES (1,'Java','2020-04-12 08:39:32.320256','2020-04-12 08:39:32.320256',1,2),(2,'PHP','2020-04-12 08:39:36.671226','2020-04-12 08:39:36.671226',1,2),(3,'MySql','2020-04-12 08:39:45.961429','2020-04-12 08:39:45.961429',1,2),(4,'HTML','2020-04-12 08:39:51.772865','2020-04-12 08:39:51.772865',1,2),(5,'Accounts','2020-04-12 08:40:01.554850','2020-04-12 08:40:01.554850',2,3),(6,'Marketing','2020-04-12 08:40:16.095706','2020-04-12 08:40:16.095706',2,3),(7,'ETP','2020-04-12 08:40:27.113388','2020-04-12 08:40:27.113388',2,3),(8,'Math','2020-04-12 08:40:39.975428','2020-04-12 08:40:39.975428',4,4),(9,'Python','2020-04-12 08:40:48.928138','2020-04-12 08:40:48.928138',4,4),(10,'Machine Learning','2020-04-12 08:40:57.217406','2020-04-12 08:40:57.217406',4,4),(11,'Artifical Intelligence','2020-04-12 08:41:11.197563','2020-04-12 08:41:11.197563',4,4),(12,'Cost Accounting','2020-04-12 08:41:20.505769','2020-04-12 08:41:20.505769',3,5),(13,'Financial Accounting','2020-04-12 08:41:29.711299','2020-04-12 08:41:29.711299',3,5),(14,'Statistics','2020-04-12 08:41:49.726616','2020-04-12 08:41:49.726616',3,5);
 /*!40000 ALTER TABLE `student_management_app_subjects` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-05-26 13:53:06
